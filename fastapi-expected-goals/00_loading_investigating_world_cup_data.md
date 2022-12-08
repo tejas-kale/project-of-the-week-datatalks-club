@@ -2,11 +2,14 @@
 
 In this notebook, we will understand how to load and inspect event data of Women's World Cup matches. We follow the Prof. David Sumpter's [video](https://www.youtube.com/watch?v=GTtuOt03FM0&ab_channel=FriendsofTracking) for understanding how to download the data and inspect it using Python. During the course of this notebook, we will assume that both Statsbomb and Wyscout data is available in the `data` directory. URLs to download the data are provided in the *References* section.
 
-The event data is provided in JSON files, so we need to import the `json` package to load these files.
+The event data is provided in JSON files, so we need to import the `json` package to load these files. We will need `matplotlib` to plot the data and `numpy` to transform the data.
 
 
 ```python
 import json
+
+import matplotlib.pyplot as plt
+import numpy as np
 ```
 
 First, we will use the Statsbomb data. Let us load information about the competitions for which data is available.
@@ -160,17 +163,19 @@ print(f"{required_home_team} vs {required_away_team} has ID: {required_match_id}
     United States of America vs Netherlands has ID: 69321
 
 
-**To Be Continued...**
+Let us now load the event data for this match based on its ID.
 
 
 ```python
-
+with open(f"./data/statsbomb/data/events/{required_match_id}.json", "r") as f:
+    match_events: list = json.load(f)
 ```
 
 ## References
 - [Statsbomb event data](https://github.com/statsbomb/open-data)
 - [Wyscout event data](https://figshare.com/collections/Soccer_match_event_dataset/4415000/5)
 - [Loading in and investigating World Cup data in Python](https://www.youtube.com/watch?v=GTtuOt03FM0&ab_channel=FriendsofTracking)
+- [Making Your Own Shot and Pass Maps](https://www.youtube.com/watch?v=oOAnERLiN5U&ab_channel=FriendsofTracking)
 
 
 ```python
