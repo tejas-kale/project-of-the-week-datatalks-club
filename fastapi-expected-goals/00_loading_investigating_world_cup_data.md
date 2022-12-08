@@ -171,6 +171,8 @@ with open(f"./data/statsbomb/data/events/{required_match_id}.json", "r") as f:
     match_events: list = json.load(f)
 ```
 
+This is the event data that we can use for various purposes like creating different kinds of plot and building models like expected goals. The first part of this data contains information about lineups and formations. After that, all information about events that happened on the ball are captured.
+
 ## References
 - [Statsbomb event data](https://github.com/statsbomb/open-data)
 - [Wyscout event data](https://figshare.com/collections/Soccer_match_event_dataset/4415000/5)
