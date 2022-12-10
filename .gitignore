@@ -1,3 +1,4 @@
-/fastapi-expected-goals/data/
-/fastapi-expected-goals/results/passes.pdf
-/fastapi-expected-goals/results/shots.pdf
+/fastapi_expected_goals/data/
+/fastapi_expected_goals/results/passes.pdf
+/fastapi_expected_goals/results/shots.pdf
+/fastapi_expected_goals/models/baseline_logistic_model.pkl

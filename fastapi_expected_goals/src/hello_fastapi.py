@@ -21,7 +21,12 @@ def read_root():
 
 
 """
-- Besides `get`, other supported operators are `put`, `post`, and `delete`.
+- Besides `get()`, other supported operators are `put()`, `post()`, and `delete()`.
+- Here is a brief description of the operators:
+    + `get()` is used to get information.
+    + `post()` is used to create new information.
+    + `put()` is used to update information.
+    + `delete()` is used to delete information.
 - The type hint also checks if the provided input matches the specified type. For
 `item_id`, if we provide a string input, the server does not crash but sends an error
 as follows:

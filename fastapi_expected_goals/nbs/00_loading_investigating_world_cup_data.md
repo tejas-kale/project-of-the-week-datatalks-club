@@ -22,7 +22,7 @@ First, we will use the Statsbomb data. Let us load information about the competi
 
 
 ```python
-with open("./data/statsbomb/data/competitions.json", "r") as f:
+with open("../data/statsbomb/data/competitions.json", "r") as f:
     competitions: list = json.load(f)
 ```
 
@@ -30,28 +30,51 @@ We have a list of 19 competitions covered in the Statsbomb data. Let us look at 
 
 
 ```python
-competitions[0]
+competitions[2]
 ```
 
 
 
 
     {'competition_id': 16,
-     'season_id': 4,
+     'season_id': 2,
      'country_name': 'Europe',
      'competition_name': 'Champions League',
      'competition_gender': 'male',
      'competition_youth': False,
      'competition_international': False,
-     'season_name': '2018/2019',
-     'match_updated': '2022-08-14T16:57:15.866765',
+     'season_name': '2016/2017',
+     'match_updated': '2021-08-27T11:26:39.802832',
      'match_updated_360': '2021-06-13T16:17:31.694',
      'match_available_360': None,
-     'match_available': '2022-08-14T16:57:15.866765'}
+     'match_available': '2020-07-29T05:00'}
 
 
 
 In this notebook, we want to inspect data for the 2019 Women's World Cup. Its competition ID is `72`.
+
+
+```python
+[competition for competition in competitions if competition["competition_id"] == 49]
+```
+
+
+
+
+    [{'competition_id': 49,
+      'season_id': 3,
+      'country_name': 'United States of America',
+      'competition_name': 'NWSL',
+      'competition_gender': 'female',
+      'competition_youth': False,
+      'competition_international': False,
+      'season_name': '2018',
+      'match_updated': '2021-11-06T05:53:29.435016',
+      'match_updated_360': '2021-06-13T16:17:31.694',
+      'match_available_360': None,
+      'match_available': '2021-11-06T05:53:29.435016'}]
+
+
 
 
 ```python
@@ -62,7 +85,7 @@ Let us load information about all matches from the competition.
 
 
 ```python
-with open(f"./data/statsbomb/data/matches/{competition_id}/30.json", "r") as f:
+with open(f"../data/statsbomb/data/matches/{competition_id}/30.json", "r") as f:
     matches: list = json.load(f)
 ```
 
@@ -176,7 +199,7 @@ Let us now load the event data for this match based on its ID.
 
 
 ```python
-with open(f"./data/statsbomb/data/events/{required_match_id}.json", "r") as f:
+with open(f"../data/statsbomb/data/events/{required_match_id}.json", "r") as f:
     match_events: list = json.load(f)
 ```
 
@@ -584,7 +607,7 @@ fig, ax = create_pitch(pitch_length_x, pitch_width_y, "yards", "gray")
 
 
     
-![png](/Users/tejaskale/Code/project-of-the-week-datatalks-club/fastapi-expected-goals/00_loading_investigating_world_cup_data_25_0.png)
+![png](/Users/tejaskale/Code/project-of-the-week-datatalks-club/fastapi_expected_goals/nbs/00_loading_investigating_world_cup_data_26_0.png)
     
 
 
@@ -626,7 +649,7 @@ plt.show()
 
 
     
-![png](/Users/tejaskale/Code/project-of-the-week-datatalks-club/fastapi-expected-goals/00_loading_investigating_world_cup_data_26_0.png)
+![png](/Users/tejaskale/Code/project-of-the-week-datatalks-club/fastapi_expected_goals/nbs/00_loading_investigating_world_cup_data_27_0.png)
     
 
 
@@ -846,7 +869,7 @@ fig, ax = create_pitch(pitch_length_x, pitch_width_y, "yards", "gray")
 
 
     
-![png](/Users/tejaskale/Code/project-of-the-week-datatalks-club/fastapi-expected-goals/00_loading_investigating_world_cup_data_30_0.png)
+![png](/Users/tejaskale/Code/project-of-the-week-datatalks-club/fastapi_expected_goals/nbs/00_loading_investigating_world_cup_data_31_0.png)
     
 
 

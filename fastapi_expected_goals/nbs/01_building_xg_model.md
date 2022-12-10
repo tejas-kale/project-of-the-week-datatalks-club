@@ -25,11 +25,11 @@ from sklearn.metrics import mean_absolute_error
 
 ## Data
 
-We have already downloaded the data and placed it in `./data/statsbomb/data` directory. Event data is available per match in a JSON file. So, in order to fetch data for all available La Liga matches, we first need to get the competition ID of La Liga. Let us do so by loading `competitions.json` and inspecting it.
+We have already downloaded the data and placed it in `../data/statsbomb/data` directory. Event data is available per match in a JSON file. So, in order to fetch data for all available La Liga matches, we first need to get the competition ID of La Liga. Let us do so by loading `competitions.json` and inspecting it.
 
 
 ```python
-competitions_fn: str = "./data/statsbomb/data/competitions.json"
+competitions_fn: str = "../data/statsbomb/data/competitions.json"
 with open(competitions_fn, "r") as f:
     competitions: pd.DataFrame = pd.read_json(f)
 competitions
@@ -711,7 +711,7 @@ We see that La Liga has the ID `11`. Let us now load the list of La Liga matches
 
 
 ```python
-def get_competition_match_ids(comp_id: int, data_dir: str = "./data/statsbomb/data/") -> list:
+def get_competition_match_ids(comp_id: int, data_dir: str = "../data/statsbomb/data/") -> list:
     """
     Get IDs of matches from all seasons of a competition e.g. La Liga.
     :param comp_id:  Competition ID from one of those provided in `competitions.json`
@@ -757,7 +757,7 @@ Having fetched the match IDs, let us now incrementally load events from them. Fo
 
 
 ```python
-def load_match_events(match_id: int, data_dir: str = "./data/statsbomb/data/events") -> List[dict]:
+def load_match_events(match_id: int, data_dir: str = "../data/statsbomb/data/events") -> List[dict]:
     """
     Load event data of a match.
     :param match_id: ID of the match which matches the name of the JSON file from which
@@ -1549,7 +1549,7 @@ baseline_model.summary()
   <th>Date:</th>            <td>Sat, 10 Dec 2022</td> <th>  Deviance:          </th> <td>  8049.0</td>
 </tr>
 <tr>
-  <th>Time:</th>                <td>19:54:39</td>     <th>  Pearson chi2:      </th> <td>1.15e+04</td>
+  <th>Time:</th>                <td>22:33:31</td>     <th>  Pearson chi2:      </th> <td>1.15e+04</td>
 </tr>
 <tr>
   <th>No. Iterations:</th>          <td>6</td>        <th>  Pseudo R-squ. (CS):</th>  <td>0.08902</td>
@@ -1581,7 +1581,7 @@ Let us now save the model parameters in a `.pkl` file.
 
 
 ```python
-def save_model(params: pd.Series, model_fn: str, model_dir: str = "./models"):
+def save_model(params: pd.Series, model_fn: str, model_dir: str = "../models"):
     """
     Save parameters of Logistic Regression to a pickle file.
     :param params:    A Pandas Series of Logistic Regression parameters.
@@ -1602,7 +1602,7 @@ Let us now define a function that loads the parameters from a pickle file and co
 
 
 ```python
-def compute_xg(xc: float, yc: float, model_fn: str, model_dir: str = "./models") -> float:
+def compute_xg(xc: float, yc: float, model_fn: str, model_dir: str = "../models") -> float:
     """
     Compute the xG of a shot given the (X, Y) coordinates of where it was taken from.
     :param xc:        X-coordinate of where the shot was taken from.
