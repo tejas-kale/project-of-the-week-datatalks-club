@@ -161,15 +161,15 @@ required_away_team: str = "Netherlands Women's"
 ```python
 required_match_id: Union[int, str] = "Not found"
 for match in matches:
-    home_team_name: str = match["home_team"]["country"]["name"]
-    away_team_name: str = match["away_team"]["country"]["name"]
+    home_team_name: str = match["home_team"]["home_team_name"]
+    away_team_name: str = match["away_team"]["away_team_name"]
     if (home_team_name == required_home_team) and (away_team_name == required_away_team):
         required_match_id: int = match["match_id"]
 
 print(f"{required_home_team} vs {required_away_team} has ID: {required_match_id}")
 ```
 
-    United States Women's vs Netherlands Women's has ID: Not found
+    United States Women's vs Netherlands Women's has ID: 69321
 
 
 Let us now load the event data for this match based on its ID.
@@ -619,8 +619,8 @@ for i, shot in shots.iterrows():
 plt.text(5, 75, f"{required_away_team} shots")
 plt.text(80, 75, f"{required_home_team} shots")
 
-fig.set_size_inches(10, 7)
-fig.savefig("results/shots.pdf", dpi=100)
+# fig.set_size_inches(10, 7)
+# fig.savefig("results/shots.pdf", dpi=100)
 plt.show()
 ```
 
@@ -872,8 +872,8 @@ for i, a_pass in passes.iterrows():
     ax.add_patch(pass_arrow)
 
 ax.set_title(f"Passes played by {required_player_name}")
-fig.set_size_inches(10, 7)
-fig.savefig("results/passes.pdf", dpi=100)
+# fig.set_size_inches(10, 7)
+# fig.savefig("results/passes.pdf", dpi=100)
 plt.show()
 ```
 
@@ -882,3 +882,8 @@ plt.show()
 - [Wyscout event data](https://figshare.com/collections/Soccer_match_event_dataset/4415000/5)
 - [Loading in and investigating World Cup data in Python](https://www.youtube.com/watch?v=GTtuOt03FM0&ab_channel=FriendsofTracking)
 - [Making Your Own Shot and Pass Maps](https://www.youtube.com/watch?v=oOAnERLiN5U&ab_channel=FriendsofTracking)
+
+
+```python
+
+```

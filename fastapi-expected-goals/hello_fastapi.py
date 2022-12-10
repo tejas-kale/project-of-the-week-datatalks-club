@@ -1,7 +1,7 @@
 """
 To run this file, execute the following command in the terminal:
 
-uvicorn main:app --reload
+uvicorn hello_fastapi:app --reload
 
 Documentation of the app can be viewed at http://127.0.0.1:8000/docs.
 """
@@ -17,7 +17,7 @@ app = FastAPI()
 @app.get("/")
 def read_root():
     # Dictionary is automatically converted to a JSON response.
-    return {"Hello": "World"}
+    return {"Hello": "FastAPI"}
 
 
 """
@@ -44,6 +44,8 @@ async def read_item(item_id: int, q: Optional[str] = None):
    pass
 ```
 """
+
+
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: Optional[str] = None):
     return {"item_id": item_id, "q": q}
