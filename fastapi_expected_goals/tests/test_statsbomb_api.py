@@ -11,7 +11,6 @@ client: TestClient = TestClient(app=app)
 def test_index_returns_correct_response():
     """
     Test that the index page shows the URL to the Swagger documentation.
-    :return:
     """
     response: Response = client.get("/")
     content: dict = json.loads(response.content)
@@ -19,6 +18,9 @@ def test_index_returns_correct_response():
 
 
 def test_get_competition_info_returns_correct_response():
+    """
+    Test that the right info is returned for the specified competition ID.
+    """
     expected_competition_info: list = [
         {
             "competition_id": 37,
@@ -70,6 +72,9 @@ def test_get_competition_info_returns_correct_response():
 
 
 def test_get_competition_info_returns_error_response():
+    """
+    Test that error is returned for invalid competition IDs.
+    """
     response: Response = client.get("/competitions/id/20")
     content: dict = json.loads(response.content)
     assert response.status_code == 404
@@ -80,6 +85,9 @@ def test_get_competition_info_returns_error_response():
 
 
 def test_get_competition_info_by_name_returns_correct_response():
+    """
+    Test that the right competition info is returned for the specified competition name.
+    """
     expected_competition_info: list = [
         {
             "competition_id": 49,
@@ -103,6 +111,9 @@ def test_get_competition_info_by_name_returns_correct_response():
 
 
 def test_get_competition_info_by_name_returns_error_response():
+    """
+    Test that an error is returned for invalid competition name.
+    """
     response: Response = client.get("/competitions/name?n=Europa League")
     content: dict = json.loads(response.content)
     assert response.status_code == 404
